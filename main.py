@@ -1,5 +1,15 @@
 import random
 
+def rules():
+  print("Welcome to the Number Guessing Game!")
+  print("The rules are as follows :")
+  print("You need to guess a random number between 1 and 100.")
+  print("You have 10 guesses to find the correct number.")
+  print("If your guess is too low, I'll let you know it's 'Too low'.")
+  print("If your guess is too high, I'll let you know it's 'Too high'.")
+  print("You can also enter -1 to quit the game.")
+  print("Let's begin!")
+
 def takeInput():
   number = random.randint(1, 100)
   noOfGuesses=10
@@ -17,16 +27,17 @@ def takeInput():
     
     if noOfGuesses==0:
       print("You lost!")
+      print(f"The number was {number}")
       again=input("Do you want to play again? ( Y/N ) : ")
       
-      while not (again=="Y" or again=="y" or again=="N" or again=="n"):
+      while not (again.upper()=="Y" or again=="N"):
         print("Enter a valid choice")
         again=input("Do you want to play again? ( Y/N ) : ")
      
-      if again=="Y" or again=="y":
+      if again.upper()=="Y":
         takeInput()
      
-      elif again=="N" or again=="n":
+      elif again.upper()=="N":
         print("Thank You for playing the game. Goodbye!") 
         break
       break
@@ -36,14 +47,14 @@ def takeInput():
       print(f"The number was {number}")
       again=input("Do you want to play again Y/N : ")
      
-      while not (again=="Y" or again=="y" or again=="N" or again=="n"):
+      while not (again.upper()=="Y" or again.upper()=="N"):
         print("Enter a valid choice")
         again=input("Do you want to play again Y/N : ")
      
-      if again=="Y" or again=="y":
+      if again.upper()=="Y":
         takeInput()
      
-      elif again=="N" or again=="n":
+      elif again.upper()=="N":
         print("Thank You for playing the game. Goodbye!")
         break
       break
@@ -61,4 +72,5 @@ def takeInput():
     else:
       print("Please enter a valid number between 1 and 100!")
 
-takeInput()
+rules()
+takeInput() 
